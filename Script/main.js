@@ -1,7 +1,11 @@
 const audio = document.querySelector('audio')
-const playButton = document.querySelector('.playButton')
-const nextButton = document.querySelector('.nextButton')
-const prevButton = document.querySelector('.prevButton')
+const playButton = document.querySelector('.play')
+const nextButton = document.querySelector('.next')
+const prevButton = document.querySelector('.prev')
+const muteButton = document.querySelector('.mute')
+const maxButton = document.querySelector('.maxVolume')
+const volumeDownButton = document.querySelector('.volumeDown')
+const volumeUpButton = document.querySelector('.volumeUp')
 
 const musicSource = '../Songs/'
 
@@ -30,6 +34,26 @@ function prevSong() {
 	audio.play()
 }
 
+function muteMusic() {
+	audio.volume = 0.0
+}
+
+function maxVolume() {
+	audio.volume = 1.0
+}
+
+function volumeDown() {
+	if (audio.volume !== 0.0) {
+		audio.volume -= 0.1
+	}
+}
+
+function volumeUp() {
+	if (audio.volume !== 1.0) {
+		audio.volume += 0.1
+	}
+}
+
 playButton.onclick = function() {
 	if (audio.paused) {
 		audio.play()
@@ -49,3 +73,19 @@ prevButton.onclick = function() {
 audio.addEventListener('ended', function() {
 	nextSong()
 })
+
+muteButton.onclick = function() {
+	muteMusic()
+}
+
+maxButton.onclick = function() {
+	maxVolume()
+}
+
+volumeDownButton.onclick = function() {
+	volumeDown()
+}
+
+volumeUpButton.onclick = function() {
+	volumeUp()
+}

@@ -1,0 +1,51 @@
+body {
+
+}
+
+/*audio { display:none;}*/
+
+.play{
+	background: url(../Img/pause.png);
+}
+
+.next{
+	background: url(../Img/next.png);
+}
+
+.prev{
+	background: url(../Img/previous.png);
+}
+
+.mute{
+	background: url(../Img/mute.png);
+}
+
+.maxVolume{
+	background: url(../Img/maxVolume.png);	
+}
+
+.volumeDown{
+	background: url(../Img/volumeDown.png);
+}
+
+.volumeUp{
+	background: url(../Img/volumeUp.png);
+}
+
+.songButton{
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	height: 200px;
+	width: 200px;
+	border: none;	
+}
+
+.volumeButton{
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+	height: 150px;
+	width: 150px;
+	border: none;	
+}

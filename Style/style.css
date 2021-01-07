@@ -1,8 +1,24 @@
 body {
-
+	background-color: #CEECF5;
 }
 
 audio { display:none;}
+
+.principalButtons, .secondaryButtons{
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.principalButtons{
+	top: 10%;
+}
+
+.secondaryButtons{
+	top: 45%;
+	left: 5%;
+}
 
 .play{
 	background: url(../Img/play.png);
@@ -36,20 +52,23 @@ audio { display:none;}
 	background: url(../Img/volumeUp.png);
 }
 
-.songButton{
+.songButton, .volumeButton{
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
+	outline: none;
+	border: none;
+}
+
+.songButton{
 	height: 200px;
 	width: 200px;
-	border: none;	
+	margin: 1%;	
 }
 
 .volumeButton{
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position: center;
+
 	height: 150px;
 	width: 150px;
-	border: none;	
+	margin: 1%;
 }

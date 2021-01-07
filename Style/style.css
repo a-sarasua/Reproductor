@@ -2,9 +2,13 @@ body {
 
 }
 
-/*audio { display:none;}*/
+audio { display:none;}
 
 .play{
+	background: url(../Img/play.png);
+}
+
+.pause{
 	background: url(../Img/pause.png);
 }
 
@@ -17,11 +21,11 @@ body {
 }
 
 .mute{
-	background: url(../Img/mute.png);
+	background: url(../Img/maxVolume.png);	
 }
 
 .maxVolume{
-	background: url(../Img/maxVolume.png);	
+	background: url(../Img/mute.png);
 }
 
 .volumeDown{

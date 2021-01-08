@@ -1,5 +1,5 @@
 body {
-	background-color: #81BEF7;
+	background-color: #BCF5A9;
 }
 
 audio {display:none;}
@@ -81,4 +81,25 @@ audio {display:none;}
 .volumeButton{
 	height: 150px;
 	width: 150px;
+}
+
+.soundIndicator{
+	position: absolute;
+	height: 3.5%;
+	width: 50%;
+	border: 4px solid black;
+	border-radius: 30px;
+	background-color: white;
+	left: 25%;
+	top: 90%;
+}
+
+.colorSignal{
+	position: absolute;
+	border-radius: 30px;
+	height: 100%;
+	width: 100%;
+	background-color: blue;
+	z-index: 2;
+	transition: all .1s linear;
 }

@@ -6,6 +6,7 @@ const muteButton = document.querySelector('.mute')
 const volumeDownButton = document.querySelector('.volumeDown')
 const volumeUpButton = document.querySelector('.volumeUp')
 const information = document.querySelector('.information')
+const colorSignal = document.querySelector('.colorSignal')
 
 const musicSource = '../Songs/'
 let musicVolume = 1.0
@@ -88,29 +89,36 @@ function muteMusic() {
 	if (audio.volume !== 0.0) {
 		audio.volume = 0.0
 		muteButton.classList.remove('mute')
-		muteButton.classList.add('maxVolume')	
+		muteButton.classList.add('maxVolume')
+		colorSignal.style.backgroundColor = 'grey'
 	} else {
 		muteButton.classList.remove('maxVolume')
 		muteButton.classList.add('mute')	
 		audio.volume = musicVolume
+		colorSignal.style.backgroundColor = 'blue'
+		colorSignal.style.width = musicVolume * 100 + '%'
 	}	
 }
 
 function volumeDown() {
-	if (audio.volume !== 0.0) {
+	if (audio.volume > 0.09) {
 		musicVolume -= 0.1
 		audio.volume = musicVolume
+	} else if (audio.volume === 0 && musicVolume > 0.09){
+		musicVolume -= 0.1
 	}
+	colorSignal.style.width = musicVolume * 100 + '%'
 }
 
 function volumeUp() {
-	if (audio.volume === 0.0) {
+	if (audio.volume === 0) {
 		musicVolume = 0.1
 		muteMusic()
-	} else if (audio.volume < 0.9) {
+	} else if (audio.volume < 0.91) {	
 		musicVolume += 0.1
 		audio.volume = musicVolume
-	}
+		colorSignal.style.width = musicVolume * 100 + '%'
+	}	
 }
 
 playButton.onclick = function() {playPause()}		

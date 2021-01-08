@@ -1,23 +1,35 @@
 body {
-	background-color: #CEECF5;
+	background-color: #81BEF7;
 }
 
-audio { display:none;}
+audio {display:none;}
+
+.buttons{
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	flex-direction: column;
+}
 
 .principalButtons, .secondaryButtons{
-	position: absolute;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
 .principalButtons{
-	top: 10%;
+	top: 20%;
 }
 
 .secondaryButtons{
-	top: 45%;
-	left: 5%;
+	top: 55%;
+}
+
+.information{
+	font-size: 55px;
+	text-align: center;
+	font-family: sans-serif;
+	color: black;
 }
 
 .play{
@@ -58,17 +70,15 @@ audio { display:none;}
 	background-position: center;
 	outline: none;
 	border: none;
+	margin: 1%;
 }
 
 .songButton{
 	height: 200px;
 	width: 200px;
-	margin: 1%;	
 }
 
 .volumeButton{
-
 	height: 150px;
 	width: 150px;
-	margin: 1%;
 }

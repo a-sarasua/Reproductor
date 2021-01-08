@@ -71,9 +71,7 @@ function playPause() {
 function nextSong() {
 	if (playlistCounter === playlist.length-1) {
 		playlistCounter = 0
-	} else {
-		playlistCounter++
-	}
+	} else playlistCounter++
 	audio.src = musicSource + playlist[playlistCounter].file
 	playPause()
 }
@@ -81,9 +79,7 @@ function nextSong() {
 function prevSong() {
 	if (playlistCounter === 0) {
 		playlistCounter = playlist.length-1
-	} else {
-		playlistCounter--
-	}	
+	} else playlistCounter--
 	audio.src = musicSource + playlist[playlistCounter].file
 	playPause()
 }
@@ -111,14 +107,10 @@ function volumeUp() {
 	if (audio.volume === 0.0) {
 		musicVolume = 0.1
 		muteMusic()
-	} else if (audio.volume < 1.0) {
+	} else if (audio.volume < 0.9) {
 		musicVolume += 0.1
 		audio.volume = musicVolume
 	}
-}
-
-function displayInfo() {
-	information.innerHTML = playlist[playlistCounter].songName + ' - ' + playlist[playlistCounter].artist 
 }
 
 playButton.onclick = function() {playPause()}		
@@ -135,6 +127,6 @@ volumeDownButton.onclick = function() {volumeDown()}
 
 volumeUpButton.onclick = function() {volumeUp()}
 
-audio.onplay = function() {displayInfo()}
+audio.onplay = function() {information.innerHTML = playlist[playlistCounter].songName + ' - ' + playlist[playlistCounter].artist}
 
 //console.log(Math.floor(Math.random() * (7 - 0)) + 0)

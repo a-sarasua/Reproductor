@@ -78,11 +78,14 @@ function nextSong() {
 }
 
 function prevSong() {
-	if (playlistCounter === 0) {
-		playlistCounter = playlist.length-1
-	} else playlistCounter--
-	audio.src = musicSource + playlist[playlistCounter].file
-	playPause()
+	console.log(audio.currentTime) 
+	if (audio.currentTime < 2) {
+		if (playlistCounter === 0) {
+			playlistCounter = playlist.length-1
+		} else playlistCounter--
+		audio.src = musicSource + playlist[playlistCounter].file
+		playPause()
+	} else audio.currentTime = 0
 }
 
 function muteMusic() {

@@ -7,9 +7,11 @@ const volumeDownButton = document.querySelector('.volumeDown')
 const volumeUpButton = document.querySelector('.volumeUp')
 const information = document.querySelector('.information')
 const colorSignal = document.querySelector('.colorSignal')
+const randomButton = document.querySelector('.randomButton')
 
 const musicSource = '../Songs/'
 let musicVolume = 1.0
+let randomize = false
 
 const playlist = [
 	{
@@ -69,10 +71,13 @@ function playPause() {
 	}
 }
 
-function nextSong() {
+function nextSong(randomize) {
 	if (playlistCounter === playlist.length-1) {
 		playlistCounter = 0
-	} else playlistCounter++
+	} else {
+		if(randomize) playlistCounter = Math.floor(Math.random() * (7 - 0)) + 0
+		playlistCounter++
+	}
 	audio.src = musicSource + playlist[playlistCounter].file
 	playPause()
 }
@@ -124,13 +129,24 @@ function volumeUp() {
 	}	
 }
 
+function changeRandom() {
+	randomize = !randomize
+	if (randomize) {
+		randomButton.classList.remove('randomButton')
+		randomButton.classList.add('randomOn')			
+	} else {
+		randomButton.classList.remove('randomOn')
+		randomButton.classList.add('randomButton')	
+	}
+}
+
 playButton.onclick = function() {playPause()}		
 
 nextButton.onclick = function() {nextSong()}
 
 prevButton.onclick = function() {prevSong()}
 
-audio.addEventListener('ended', function() {nextSong()})
+audio.addEventListener('ended', function() {nextSong(randomize)})
 
 muteButton.onclick = function() {muteMusic()}
 
@@ -138,6 +154,6 @@ volumeDownButton.onclick = function() {volumeDown()}
 
 volumeUpButton.onclick = function() {volumeUp()}
 
-audio.onplay = function() {information.innerHTML = playlist[playlistCounter].songName + ' - ' + playlist[playlistCounter].artist}
+randomButton.onclick = function() {changeRandom()}
 
-//console.log(Math.floor(Math.random() * (7 - 0)) + 0)
+audio.onplay = function() {information.innerHTML = playlist[playlistCounter].songName + ' - ' + playlist[playlistCounter].artist}

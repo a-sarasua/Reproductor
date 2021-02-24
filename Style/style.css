@@ -64,7 +64,15 @@ audio {display:none;}
 	background: url(../Img/volumeUp.png);
 }
 
-.songButton, .volumeButton{
+.randomButton{
+	background: url(../Img/random.png);
+}
+
+.randomOn{
+	background: url(../Img/randomOn.png);
+}
+
+.songButton, .volumeLine{
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center;
@@ -78,7 +86,7 @@ audio {display:none;}
 	width: 200px;
 }
 
-.volumeButton{
+.volumeLine{
 	height: 150px;
 	width: 150px;
 }
